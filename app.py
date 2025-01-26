@@ -4,7 +4,7 @@ import requests
 app = Flask(__name__)
 
 @app.route('/api/spotify', methods=['GET'])
-def get_spotify_playlist():
+def get_spotify_playlist_tracks():
     playlist_id = request.args.get('id')
     if not playlist_id:
         return jsonify({"error": "Playlist ID is required"}), 400
@@ -27,7 +27,7 @@ def get_spotify_playlist():
         return jsonify({"error": "Failed to fetch data"}), 500
 
 @app.route('/api/spotifyPlaylist', methods=['GET'])
-def get_spotify_playlist():
+def get_spotify_playlist_metadata():
     playlist_id = request.args.get('id')
     if not playlist_id:
         return jsonify({"error": "Playlist ID is required"}), 400
